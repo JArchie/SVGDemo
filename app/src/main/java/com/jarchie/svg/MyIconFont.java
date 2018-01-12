@@ -2,10 +2,8 @@ package com.jarchie.svg;
 
 import android.content.Context;
 import android.graphics.Typeface;
-
 import com.mikepenz.iconics.typeface.IIcon;
 import com.mikepenz.iconics.typeface.ITypeface;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -15,9 +13,10 @@ import java.util.LinkedList;
  * 自定义字体图标库
  */
 
+@SuppressWarnings("WeakerAccess")
 public class MyIconFont implements ITypeface{
 
-    private static final String TTF_FILE = "iconfont.ttf";
+    private static final String TTF_FILE = "iconfont.ttf"; //字体名称
 
     private static Typeface typeface = null;
 
@@ -76,32 +75,53 @@ public class MyIconFont implements ITypeface{
 
     @Override
     public String getUrl() { //域名URL，可以随便写，也可不写
-        return "";
+        return "https://github.com/JArchie/SVGDemo";
     }
 
     @Override
-    public String getDescription() { //
-        return null;
+    public String getDescription() { //描述内容
+        return "The custom icon font for Iconics";
     }
 
     @Override
-    public String getLicense() {
-        return null;
+    public String getLicense() { //授权
+        return "XXX Licensed";
     }
 
     @Override
-    public String getLicenseUrl() {
-        return null;
+    public String getLicenseUrl() { //授权地址
+        return "https://github.com/JArchie/SVGDemo";
     }
 
     @Override
-    public Typeface getTypeface(Context ctx) {
-        return null;
+    public Typeface getTypeface(Context context) { //获取Typeface对象
+        if (typeface == null) {
+            try {
+                typeface = Typeface.createFromAsset(context.getAssets(), TTF_FILE);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return typeface;
     }
 
+    @SuppressWarnings({"WeakerAccess", "unused"})
     public enum Icon implements IIcon {
-        fon_test1('\ue800'),
-        fon_test2('\ue801');
+        archie_all('\ue696'),
+        archie_back('\ue697'),
+        archie_cart('\ue698'),
+        archie_category('\ue699'),
+        archie_close('\ue69a'),
+        archie_comments('\ue69b'),
+        archie_cry('\ue69c'),
+        archie_delete('\ue69d'),
+        archie_edit('\ue69e'),
+        archie_form('\ue6a2'),
+        archie_qrcoed('\ue6a9'),
+        archie_search('\ue6ac'),
+        archie_selected('\ue6ad'),
+        archie_set('\ue6ae'),
+        archie_success('\ue6b1');
 
         char character;
 

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SVGDemo</string>
+    <string name="svg_cart">&#xe698;</string>
+    <string name="svg_delete">&#xe69d;</string>
+</resources>
